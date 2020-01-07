@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+  <a class="navbar-brand" href="#">
+    <img class="logo ml-3" src="assets/BNP-logo.png" alt=""
+  /></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" *ngIf="loginService.isLoginValid == true">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/simulation']">Simulation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/searchclient']"
+          >Recherche client</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/nouveauClient']"
+          >Création client</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="loginService.role == 'MANAGER'">
+        <a class="nav-link" [routerLink]="['/statistics']">Statistiques</a>
+      </li>
+      <li class="nav-item" *ngIf="loginService.role == 'ADMIN'">
+        <a class="nav-link" [routerLink]="['/rates']">Gestion des taux</a>
+      </li>
+    </ul>
+  </div>
+</nav>
